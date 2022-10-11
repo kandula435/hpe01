@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jhooq-springboot
+  name: Hpe01-demo
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: jhooq-springboot
+      app: Hpe01-demo
   template:
     metadata:
       labels:
-        app: jhooq-springboot
+        app: Hpe01-demo
     spec:
       containers:
-        - name: springboot
+        - name: Hpe
           image: kandula435/docker-web-demo:docker-web-demo
           ports:
             - containerPort: 8080
@@ -24,11 +24,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: jhooq-springboot
+  name: Hpe01-demo
 spec:
   type: NodePort
   ports:
     - port: 80
       targetPort: 8080
   selector:
-    app: jhooq-springboot
+    app: Hpe01-demo
